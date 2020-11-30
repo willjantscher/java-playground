@@ -1,9 +1,15 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+version = 'version'
 group 'com.galvanize'
-version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -11,4 +17,13 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.galvanize.Application'
+        )
+    }
 }
