@@ -2,11 +2,12 @@ plugins {
     id 'java-library'
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
-    }
-}
+//need to comment this out to run in here, but need uncommented to run in terminal
+//java {
+//    toolchain {
+//        languageVersion = JavaLanguageVersion.of(11)
+//    }
+//}
 
 version = 'version'
 group 'com.galvanize'
